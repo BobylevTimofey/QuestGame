@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<dialogues>
+  <hero id ="0">
+    <dialogue id = "0">
+      <npc name = "SomeHero">Some text</npc>
+      <npc name = "Player">Some text</npc>
+      <npc name = "SomeHero">Some text</npc>
+      </dialogue>
+      <dialogue id = "1">
+        <npc name = "SomeHero">Some text</npc>
+        <npc name = "Player">Some text</npc>
+        <npc name = "SomeHero">Some text</npc>
+        </dialogue>
+  </hero>
+</dialogues>
+
