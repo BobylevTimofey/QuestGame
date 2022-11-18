@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public static class Inventory
+public static class Inventory 
 {
     private static List<QuestObject> inventory;
     private static double capacity;
     private static double currentWeihgt;
+    private static GameObject itemsField = GameObject.Find("ItemsField");
 
     static Inventory()
     {
@@ -24,7 +26,9 @@ public static class Inventory
     {
         if (currentWeihgt + questObject.Weight <= capacity)
         {
+            currentWeihgt += questObject.Weight;
             inventory.Add(questObject);
+            itemsField.GetComponent<InventoryField>().Add(questObject);
             Debug.Log(questObject.Name);
         }
         else
@@ -35,4 +39,5 @@ public static class Inventory
     {
             inventory.Remove(questObject);
     }
+
 }
