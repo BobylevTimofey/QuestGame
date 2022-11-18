@@ -6,7 +6,7 @@ using System.Xml;
 public class DialogueManager : MonoBehaviour
 {
     private XmlDocument xmlDialogues;
-    public Queue<Phrase> GetDialogue(NPC npc)
+    public List<Phrase> GetDialogue(NPC npc)
     {
         var dialogues = xmlDialogues.DocumentElement;
         foreach (XmlNode hero in dialogues)
@@ -15,25 +15,25 @@ public class DialogueManager : MonoBehaviour
         return null;
     }
 
-    private Queue<Phrase> FindRequiredDialogue(NPC npc, XmlNode hero)
+    private List<Phrase> FindRequiredDialogue(NPC npc, XmlNode hero)
     {
         foreach (XmlNode dialogue in hero)
-            if (int.Parse(dialogue.Attributes.GetNamedItem("id").Value) == npc.DialogueId)
+            if (int.Parse(hero.Attributes.GetNamedItem("id").Value) == npc.DialogueId)
                 return GetPhrase(dialogue);
         return null;
     }
 
-    private Queue<Phrase> GetPhrase(XmlNode dialogue)
+    private List<Phrase> GetPhrase(XmlNode dialogue)
     {
-        var phrases = new Queue<Phrase>();
+        var phrases = new List<Phrase>();
         foreach (XmlNode phrase in dialogue)
-            phrases.Enqueue(new Phrase(phrase.Attributes.GetNamedItem("name").Value, phrase.InnerText));
+            phrases.Add(new Phrase(phrase.Attributes.GetNamedItem("name").Value, phrase.Value));
         return phrases;
     }
 
     private void Start()
     {
         xmlDialogues = new XmlDocument();
-        xmlDialogues.Load(@"D:\Unity\QuestGame\QuestGame\Assets\Scripts\Dialogue\Dialogues.xml");
+        xmlDialogues.Load("Dialogues.xml");
     }
 }

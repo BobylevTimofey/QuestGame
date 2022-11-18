@@ -5,12 +5,12 @@
       <npc name = "SomeHero">Some text</npc>
       <npc name = "Player">Some text</npc>
       <npc name = "SomeHero">Some text</npc>
-    </dialogue>
-    <dialogue id = "1">
-      <npc name = "SomeHero">Some text</npc>
-      <npc name = "Player">Some text</npc>
-      <npc name = "SomeHero">Some text</npc>
-    </dialogue>
+      </dialogue>
+      <dialogue id = "1">
+        <npc name = "SomeHero">Some text</npc>
+        <npc name = "Player">Some text</npc>
+        <npc name = "SomeHero">Some text</npc>
+        </dialogue>
   </hero>
 </dialogues>
 
