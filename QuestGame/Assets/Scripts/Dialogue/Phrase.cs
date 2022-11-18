@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Phrase : MonoBehaviour
+public class Phrase
 {
     public string Name { get; }
     public string Text { get; }
