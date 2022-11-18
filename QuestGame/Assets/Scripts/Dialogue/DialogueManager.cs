@@ -34,7 +34,7 @@ public class DialogueManager : MonoBehaviour
     private void Start()
     {
         xmlDialogues = new XmlDocument();
-        xmlDialogues.Load(@"D:\Unity\QuestGame\QuestGame\Assets\Scripts\Dialogue\Dialogues.xml");
+        xmlDialogues.Load("Dialogues.xml");
     }
 }
 
