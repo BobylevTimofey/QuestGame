@@ -23,7 +23,10 @@ public static class Inventory
     public static void Add(QuestObject questObject)
     {
         if (currentWeihgt + questObject.Weight <= capacity)
+        {
             inventory.Add(questObject);
+            Debug.Log(questObject.Name);
+        }
         else
             Debug.Log("Bag is full");
     }
