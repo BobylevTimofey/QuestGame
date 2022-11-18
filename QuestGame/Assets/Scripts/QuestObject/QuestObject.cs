@@ -7,7 +7,7 @@ public abstract class QuestObject : MonoBehaviour, IInteractable
     public abstract double Weight { get; }
     public abstract string Name { get; }
     public Sprite Icon;
-
+    
     public void Take() 
     {
         Inventory.Add(this);

@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public static class Inventory 
+public static class Inventory
 {
-    private static List<QuestObject> inventory;
+
+    public static List<QuestObject> inventory;
     private static double capacity;
     private static double currentWeihgt;
-    private static GameObject itemsField = GameObject.Find("ItemsField");
-
+    private static InventoryField itemsField = GameObject.Find("ItemsField").GetComponent<InventoryField>();
     static Inventory()
     {
         inventory = new List<QuestObject>();
@@ -17,18 +17,18 @@ public static class Inventory
         currentWeihgt = 0;
     }
 
-    public static  void TakeBag()
+    public static void TakeBag()
     {
         capacity = 10;
     }
 
     public static void Add(QuestObject questObject)
     {
+        questObject.gameObject.SetActive(false);
         if (currentWeihgt + questObject.Weight <= capacity)
         {
             currentWeihgt += questObject.Weight;
             inventory.Add(questObject);
-            itemsField.GetComponent<InventoryField>().Add(questObject);
             Debug.Log(questObject.Name);
         }
         else
@@ -37,7 +37,23 @@ public static class Inventory
 
     public static void Drop(QuestObject questObject)
     {
-            inventory.Remove(questObject);
+        questObject.gameObject.SetActive(true);
+        currentWeihgt -= questObject.Weight;
+        inventory.Remove(questObject);
+        ClearInventoryItems();
+        LoadInventoryItems();
+
     }
 
+    public static void LoadInventoryItems()
+    {
+        foreach (var item in inventory)
+        {
+            itemsField.Add(item);
+        }
+    }
+    public static void ClearInventoryItems()
+    {
+        itemsField.ClearField();
+    }
 }

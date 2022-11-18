@@ -11,6 +11,11 @@ public class DialoguePlayer : MonoBehaviour
     private Queue<Phrase> phrasess;
     private bool IsPlaying;
 
+    private void Awake()
+    {
+        DialogueCanvas.gameObject.SetActive(false);
+    }
+
     public void PlayDialogue(Queue<Phrase> phrases)
     {
         phrasess = phrases;
