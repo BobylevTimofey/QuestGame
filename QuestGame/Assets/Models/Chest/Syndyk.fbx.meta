@@ -3,7 +3,67 @@ guid: 5eb217f4d6f365f418b2f2774235c426
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Metal
+    second: {fileID: 2100000, guid: 8c84c3c20d2347044b3a939ffb6d1ad8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Metal 2
+    second: {fileID: 2100000, guid: ff9bf4b405772d7469e24dd50ba0e69b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wood
+    second: {fileID: 2100000, guid: 5c0d1a7845d9d4c4f8c9af8523a756b6, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Metal017_2K_Color
+    second: {fileID: 2800000, guid: e9e2440eda0bd5345bf5df68ad400986, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Metal017_2K_Metalness
+    second: {fileID: 2800000, guid: 8d198aed209a43c40aff89e59370b954, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Metal017_2K_Roughness
+    second: {fileID: 2800000, guid: 06f6d61c3e371f84ba451b8eae2fb319, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Metal038_2K_Color
+    second: {fileID: 2800000, guid: 344872c6926c5134b81d935cd15c5803, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Metal038_2K_Metalness
+    second: {fileID: 2800000, guid: 06d2e39e3f1af6044b2d42f30f88762e, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Metal038_2K_Roughness
+    second: {fileID: 2800000, guid: 3b07d5c039a76774baab9104b3b53f95, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Wood060_2K_AmbientOcclusion
+    second: {fileID: 2800000, guid: d7a22e549af4d7d41b6e99f4ef27e1ba, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Wood060_2K_Color
+    second: {fileID: 2800000, guid: 5f4a6010bd8ca064189bd11412c89089, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Wood060_2K_Roughness
+    second: {fileID: 2800000, guid: b7f97c4e4a108454aa2b6192764b60f8, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
