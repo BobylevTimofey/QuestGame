@@ -5,50 +5,70 @@ ModelImporter:
   internalIDToNameTable: []
   externalObjects:
   - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Tkan
+    second: {fileID: 2100000, guid: 1e7cd79ff28588540983b08f68346562, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Tkan.001
+    second: {fileID: 2100000, guid: 17855103fa36fe7499e3e74fe23c942b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wood
+    second: {fileID: 2100000, guid: 714b80b96c3370f45be12830ab7c676d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wood 2
+    second: {fileID: 2100000, guid: 0264f49a3d1ed5d4589fcef4f9fc1784, type: 2}
+  - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: Fabric041_2K_AmbientOcclusion
-    second: {fileID: 2800000, guid: a11df0dab5016264a8542d5fcda5e2e4, type: 3}
+    second: {fileID: 2800000, guid: 75b48c601ffaf8a48a23b456a04f97b7, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: Fabric063_2K_Color
-    second: {fileID: 2800000, guid: 871a133cd6b15d64e93f47a88a15998a, type: 3}
+    second: {fileID: 2800000, guid: 40d42a18bd0ba8d49a4277c6d392dabf, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: Fabric063_2K_Roughness
-    second: {fileID: 2800000, guid: 0f4621b465fe3704a8dbdcce2bc5be36, type: 3}
+    second: {fileID: 2800000, guid: 3365f4836b865fc42a82f2913ae690b5, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: Wood060_2K_AmbientOcclusion
-    second: {fileID: 2800000, guid: 507050ecf5deb71428e23780f1f1ee75, type: 3}
+    second: {fileID: 2800000, guid: f50f2174fc3bcef40b565dfea3eda177, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: Wood060_2K_Color
-    second: {fileID: 2800000, guid: 48009d1baad8dcd428b3910ccc07c074, type: 3}
+    second: {fileID: 2800000, guid: 40b95a221ed3ec04e9548b929243c002, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: Wood060_2K_Roughness
-    second: {fileID: 2800000, guid: 7c49d0564ff7d1047b4dbf7c6fd586e3, type: 3}
+    second: {fileID: 2800000, guid: 8f6078130f2a7a743a426bbbf3eac6d0, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: Wood077_2K_AmbientOcclusion
-    second: {fileID: 2800000, guid: 1f12d62e891997b469f4ea0aa5d1794a, type: 3}
+    second: {fileID: 2800000, guid: d3c2deeac0188214e9a3d85e669fb302, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: Wood077_2K_Color
-    second: {fileID: 2800000, guid: 13a0c1b42891c46479ec354cae3f08dc, type: 3}
+    second: {fileID: 2800000, guid: a46a26a2ba2de3c498ff265194d46125, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: Wood077_2K_Roughness
-    second: {fileID: 2800000, guid: e2d5f06208ec28d43bdd8de8a1131531, type: 3}
+    second: {fileID: 2800000, guid: a8885b2a7cd48a847b43e4764a7d8495, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0

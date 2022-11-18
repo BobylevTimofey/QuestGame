@@ -6,7 +6,7 @@ using System.Xml;
 public class DialogueManager : MonoBehaviour
 {
     private XmlDocument xmlDialogues;
-    public List<Phrase> GetDialogue(NPC npc)
+    public Queue<Phrase> GetDialogue(NPC npc)
     {
         var dialogues = xmlDialogues.DocumentElement;
         foreach (XmlNode hero in dialogues)
@@ -15,19 +15,19 @@ public class DialogueManager : MonoBehaviour
         return null;
     }
 
-    private List<Phrase> FindRequiredDialogue(NPC npc, XmlNode hero)
+    private Queue<Phrase> FindRequiredDialogue(NPC npc, XmlNode hero)
     {
         foreach (XmlNode dialogue in hero)
-            if (int.Parse(hero.Attributes.GetNamedItem("id").Value) == npc.DialogueId)
+            if (int.Parse(dialogue.Attributes.GetNamedItem("id").Value) == npc.DialogueId)
                 return GetPhrase(dialogue);
         return null;
     }
 
-    private List<Phrase> GetPhrase(XmlNode dialogue)
+    private Queue<Phrase> GetPhrase(XmlNode dialogue)
     {
-        var phrases = new List<Phrase>();
+        var phrases = new Queue<Phrase>();
         foreach (XmlNode phrase in dialogue)
-            phrases.Add(new Phrase(phrase.Attributes.GetNamedItem("name").Value, phrase.Value));
+            phrases.Enqueue(new Phrase(phrase.Attributes.GetNamedItem("name").Value, phrase.InnerText));
         return phrases;
     }
 
@@ -37,3 +37,4 @@ public class DialogueManager : MonoBehaviour
         xmlDialogues.Load("Dialogues.xml");
     }
 }
+
