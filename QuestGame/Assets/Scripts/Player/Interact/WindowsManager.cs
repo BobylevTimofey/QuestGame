@@ -44,7 +44,7 @@ public class WindowsManager : MonoBehaviour
         if (!inventoryUI.activeSelf)
         {
             Time.timeScale = 0;
-            Cursor.lockState = CursorLockMode.Confined;
+            Cursor.lockState = CursorLockMode.None;
             inventoryUI.SetActive(true);
             Inventory.LoadInventoryItems();
         }
