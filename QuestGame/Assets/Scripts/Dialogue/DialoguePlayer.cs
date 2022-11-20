@@ -9,6 +9,12 @@ public class DialoguePlayer : MonoBehaviour
     public Text NameOutput;
     public Text TextOutput;
     private Queue<Phrase> phrasess;
+    private bool IsPlaying;
+
+    private void Awake()
+    {
+        DialogueCanvas.gameObject.SetActive(false);
+    }
 
     public void PlayDialogue(Queue<Phrase> phrases)
     {
@@ -26,6 +32,7 @@ public class DialoguePlayer : MonoBehaviour
         }
         var phrase = phrasess.Dequeue();
         NameOutput.text = phrase.Name;
+        IsPlaying = true;
         StartCoroutine(TypePhrase(phrase.Text));
     }
 
@@ -37,6 +44,7 @@ public class DialoguePlayer : MonoBehaviour
             TextOutput.text += letter;
             yield return null;
         }
+        IsPlaying = false;
     }
 
     private void EndDialogue()
@@ -46,7 +54,7 @@ public class DialoguePlayer : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (Input.GetKeyDown(KeyCode.Return) && !IsPlaying)
             NextPhrase();
     }
 }

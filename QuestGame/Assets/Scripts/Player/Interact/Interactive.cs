@@ -5,9 +5,12 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Interactive : MonoBehaviour
 {
+    [SerializeField]
+    private char KeyToInteract;
     [SerializeField]
     private GameObject interactPanel;
     [SerializeField]
@@ -37,14 +40,17 @@ public class Interactive : MonoBehaviour
 
     private void CheckInteract()
     {
-        if (Physics.Raycast(ray, out hit, hitDistance, layerMask.value))
-        {
-            interactPanel.SetActive(true);
+            if (Physics.Raycast(ray, out hit, hitDistance, layerMask.value))
+            {
+                interactPanel.SetActive(true);
+                interactPanel.GetComponent<Text>().text = "[" + KeyToInteract + "] - Взаимодействовать";
 
-            if (Input.GetKeyDown(KeyCode.E))
-                hit.transform.gameObject.GetComponent<IInteractable>().Interact();
-        }
-        else
-            interactPanel.SetActive(false);
+                if (Input.GetKeyDown((KeyCode)Enum.Parse(typeof(KeyCode), KeyToInteract.ToString())))
+                {
+                    hit.transform.gameObject.GetComponent<IInteractable>().Interact();
+                }
+            }
+            else
+                interactPanel.SetActive(false);
     }
 }
