@@ -5,40 +5,50 @@ ModelImporter:
   internalIDToNameTable: []
   externalObjects:
   - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: metal
+    second: {fileID: 2100000, guid: 2043eeac55c0c18418cfaed31866902d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wood
+    second: {fileID: 2100000, guid: b444b1d94c739174992babd3c1bc1e91, type: 2}
+  - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: Metal019_2K_Color
-    second: {fileID: 2800000, guid: 79a4f5179db71404fbd0a0e2a34443f9, type: 3}
+    second: {fileID: 2800000, guid: 1ae6566bff9586c4dbd1083731abc757, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: Metal019_2K_Metalness
-    second: {fileID: 2800000, guid: f61ae8d0a9344574887d5c07cd2ae9a6, type: 3}
+    second: {fileID: 2800000, guid: 47890bff4189e3b48b5b53ef2a5d1545, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: Metal019_2K_NormalDX
-    second: {fileID: 2800000, guid: c47e40fc35e9f0f48abc410b0451318f, type: 3}
+    second: {fileID: 2800000, guid: 14b1eed1086f0404393007c035221b47, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: Metal019_2K_Roughness
-    second: {fileID: 2800000, guid: 013364e1d15f9314eb5de32872591f32, type: 3}
+    second: {fileID: 2800000, guid: 057a270833932f241b6dd6531f2ef51d, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: brown_planks_03_diff_2k
-    second: {fileID: 2800000, guid: 579cb6bb7ecc0c24baf0611704430eb2, type: 3}
+    second: {fileID: 2800000, guid: 3d422a3c1c3972147a4ffeee3e46bba5, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: brown_planks_03_rough_2k
-    second: {fileID: 2800000, guid: 5dcd46f96feb5114db5de26c2826e56a, type: 3}
+    second: {fileID: 2800000, guid: c4d8e70990ae49244a2eacf5ffb9ccd3, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: brown_planks_03_spec_2k
-    second: {fileID: 2800000, guid: 78f34b1ffe66689439c63c34b8964a7e, type: 3}
+    second: {fileID: 2800000, guid: 545e7d2eca45f954bb5d717ce8846c0f, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
