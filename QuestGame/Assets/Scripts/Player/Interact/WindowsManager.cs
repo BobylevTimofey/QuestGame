@@ -1,3 +1,4 @@
+using StarterAssets;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,14 @@ public class WindowsManager : MonoBehaviour
     [SerializeField]
     private GameObject BaseUI;
 
+    private ThirdPersonController controller;
+    private StarterAssetsInputs starterAssetsInputs;
+
+    private void Awake()
+    {
+        controller = GetComponent<ThirdPersonController>();
+        starterAssetsInputs = GetComponent<StarterAssetsInputs>();
+    }
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.E))
@@ -41,16 +50,19 @@ public class WindowsManager : MonoBehaviour
 
     public void OpenCloseInventory()
     {
+        starterAssetsInputs.CanMove = inventoryUI.activeSelf;
+        controller.LockCameraPosition = !inventoryUI.activeSelf;
         if (!inventoryUI.activeSelf)
         {
-            Time.timeScale = 0;
+            starterAssetsInputs.move = Vector2.zero;
+            starterAssetsInputs.jump = false;
+            starterAssetsInputs.sprint = false;
             Cursor.lockState = CursorLockMode.None;
             inventoryUI.SetActive(true);
             Inventory.LoadInventoryItems();
         }
         else
         {
-            Time.timeScale = 1;
             Cursor.lockState = CursorLockMode.Locked;
             Inventory.ClearInventoryItems();
             inventoryUI.SetActive(false);

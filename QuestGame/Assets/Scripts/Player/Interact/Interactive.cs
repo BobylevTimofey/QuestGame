@@ -40,17 +40,23 @@ public class Interactive : MonoBehaviour
 
     private void CheckInteract()
     {
-            if (Physics.Raycast(ray, out hit, hitDistance, layerMask.value))
-            {
-                interactPanel.SetActive(true);
-                interactPanel.GetComponent<Text>().text = "[" + KeyToInteract + "] - Взаимодействовать";
+        if (Physics.Raycast(ray, out hit, hitDistance, layerMask.value))
+        {
+            interactPanel.SetActive(true);
+            interactPanel.GetComponent<Text>().text = "[" + KeyToInteract + "] - Взаимодействовать";
 
-                if (Input.GetKeyDown((KeyCode)Enum.Parse(typeof(KeyCode), KeyToInteract.ToString())))
-                {
-                    hit.transform.gameObject.GetComponent<IInteractable>().Interact();
-                }
+            Debug.DrawRay(ray.origin, ray.direction * hitDistance, Color.blue);
+
+            if (Input.GetKeyDown((KeyCode)Enum.Parse(typeof(KeyCode), KeyToInteract.ToString())))
+            {
+                hit.transform.gameObject.GetComponent<IInteractable>().Interact();
             }
-            else
-                interactPanel.SetActive(false);
+        }
+        else
+        {
+            interactPanel.SetActive(false);
+
+            Debug.DrawRay(ray.origin, ray.direction * hitDistance, Color.red);
+        }
     }
 }
