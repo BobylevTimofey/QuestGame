@@ -447,8 +447,7 @@ GameObject:
   - component: {fileID: 6496737596015838248}
   - component: {fileID: 6452082798249511079}
   - component: {fileID: 7158811754840217282}
-  - component: {fileID: 5476221878895917857}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -521,19 +520,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &5476221878895917857
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1285944939763594929}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.465566, y: 0.079810135, z: 1.3412437}
-  m_Center: {x: 1.2792903, y: 9.935181, z: 46.07715}
 --- !u!1 &2408640750773781138
 GameObject:
   m_ObjectHideFlags: 0
@@ -1154,7 +1140,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5412782260732525567}
-  m_Layer: 0
+  - component: {fileID: 256105027}
+  - component: {fileID: 824245392922278653}
+  - component: {fileID: 7066849248188196599}
+  m_Layer: 3
   m_Name: Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}
@@ -1177,6 +1166,51 @@ Transform:
   m_Father: {fileID: 8581104840982185235}
   m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+--- !u!95 &256105027
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6465290371053472264}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a05937026b9668a46ba013edc5ef005c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!65 &824245392922278653
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6465290371053472264}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.465566, y: 0.079810135, z: 1.3412437}
+  m_Center: {x: 0, y: 0, z: -0.673}
+--- !u!114 &7066849248188196599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6465290371053472264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edff01631e90bbb4987166421029857c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6493639640914208731
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,8 +13,6 @@ public class Interactive : MonoBehaviour
     private char KeyToInteract;
     [SerializeField]
     private GameObject interactPanel;
-    [SerializeField]
-    private LayerMask layerMask;
     private Camera cam;
     private Ray ray;
     private RaycastHit hit;
@@ -40,22 +38,26 @@ public class Interactive : MonoBehaviour
 
     private void CheckInteract()
     {
-        if (Physics.Raycast(ray, out hit, hitDistance, layerMask.value))
+        if (Physics.Raycast(ray, out hit, hitDistance))
         {
-            interactPanel.SetActive(true);
-            interactPanel.GetComponent<Text>().text = "[" + KeyToInteract + "] - Взаимодействовать";
-
-            Debug.DrawRay(ray.origin, ray.direction * hitDistance, Color.blue);
-
-            if (Input.GetKeyDown((KeyCode)Enum.Parse(typeof(KeyCode), KeyToInteract.ToString())))
+            if (hit.collider.gameObject.layer == 3)
             {
-                hit.transform.gameObject.GetComponent<IInteractable>().Interact();
+                interactPanel.SetActive(true);
+                interactPanel.GetComponent<Text>().text = "[" + KeyToInteract + "] - Взаимодействовать";
+
+                Debug.DrawRay(ray.origin, ray.direction * hitDistance, Color.blue);
+
+                if (Input.GetKeyDown((KeyCode)Enum.Parse(typeof(KeyCode), KeyToInteract.ToString())))
+                {
+                    hit.transform.gameObject.GetComponent<IInteractable>().Interact();
+                }
             }
+            else
+                interactPanel.SetActive(false);
         }
         else
         {
             interactPanel.SetActive(false);
-
             Debug.DrawRay(ray.origin, ray.direction * hitDistance, Color.red);
         }
     }
