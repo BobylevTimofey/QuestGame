@@ -55,7 +55,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ParallaxMap:
-        m_Texture: {fileID: 2800000, guid: e8bb1affb18385a4ebd35a2962d5bdf0, type: 3}
+        m_Texture: {fileID: 2800000, guid: 42f3ee9763fc4dc48a53a5d07c9d47e8, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []

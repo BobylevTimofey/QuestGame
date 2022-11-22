@@ -8,13 +8,13 @@ public class Door : MonoBehaviour, IInteractable
     private Animator animator;
     private bool isOpen;
     private Collider c;
-    private void Start()
+    private void Awake()
     {
         isOpen = false;
         animator = GetComponent<Animator>();
         c = GetComponent<Collider>();
 
-        animator.SetBool("IsOpen", isOpen);
+        animator.SetBool("IsOpen", false);
     }
 
     public void Interact()
@@ -31,5 +31,10 @@ public class Door : MonoBehaviour, IInteractable
     public void EnableCollider()
     {
         c.enabled = true;
+    }
+
+    public string ActionText()
+    {
+        return isOpen ? "Закрыть дверь" : "Открыть дверь";
     }
 }

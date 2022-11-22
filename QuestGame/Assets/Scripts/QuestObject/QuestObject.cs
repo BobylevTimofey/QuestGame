@@ -21,4 +21,9 @@ public abstract class QuestObject : MonoBehaviour, IInteractable
     {
         Take();
     }
+
+    string IInteractable.ActionText()
+    {
+        return "Взять " + Name;
+    }
 }

@@ -9,7 +9,9 @@ public static class Inventory
     public static List<QuestObject> inventory;
     private static double capacity;
     private static double currentWeihgt;
-    private static InventoryField itemsField = GameObject.Find("ItemsField").GetComponent<InventoryField>();
+    private static InventoryFieldController inventoryController 
+        = GameObject.Find("InventoryController")
+                    .GetComponent<InventoryFieldController>();
     static Inventory()
     {
         inventory = new List<QuestObject>();
@@ -49,11 +51,11 @@ public static class Inventory
     {
         foreach (var item in inventory)
         {
-            itemsField.Add(item);
+            inventoryController.Add(item);
         }
     }
     public static void ClearInventoryItems()
     {
-        itemsField.ClearField();
+        inventoryController.ClearField();
     }
 }

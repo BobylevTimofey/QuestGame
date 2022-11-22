@@ -8,6 +8,11 @@ public abstract class NPC : MonoBehaviour, IInteractable
     public abstract int NPCId { get; }
     public int DialogueId { get => CheckId(); }
 
+    public string ActionText()
+    {
+        return "Говорить";
+    }
+
     public abstract int CheckId();
 
     public void Interact()

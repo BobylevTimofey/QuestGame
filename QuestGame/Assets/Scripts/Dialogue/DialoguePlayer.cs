@@ -5,21 +5,19 @@ using UnityEngine.UI;
 
 public class DialoguePlayer : MonoBehaviour
 {
-    public Canvas DialogueCanvas;
+    [SerializeField]
+    private WindowsController windowsController;
+
+    public Window DialogueCanvas;
     public Text NameOutput;
     public Text TextOutput;
     private Queue<Phrase> phrasess;
     private bool IsPlaying;
 
-    private void Awake()
-    {
-        DialogueCanvas.gameObject.SetActive(false);
-    }
-
     public void PlayDialogue(Queue<Phrase> phrases)
     {
         phrasess = phrases;
-        DialogueCanvas.gameObject.SetActive(true);
+        windowsController.OpenWindow(DialogueCanvas);
         NextPhrase();
     }
 
@@ -49,7 +47,7 @@ public class DialoguePlayer : MonoBehaviour
 
     private void EndDialogue()
     {
-        DialogueCanvas.gameObject.SetActive(false);
+        windowsController.CloseWindow(DialogueCanvas);
     }
 
     private void Update()

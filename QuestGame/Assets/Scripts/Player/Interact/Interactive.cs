@@ -16,14 +16,16 @@ public class Interactive : MonoBehaviour
     private Camera cam;
     private Ray ray;
     private RaycastHit hit;
+    public bool CanInteract;
 
     [SerializeField]
     private float hitDistance;
 
     private void Awake()
     {
+        CanInteract= true;
         interactPanel.SetActive(false);
-        cam = GetComponent<Camera>();
+        cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
     }
     private void Update()
     {
@@ -40,16 +42,18 @@ public class Interactive : MonoBehaviour
     {
         if (Physics.Raycast(ray, out hit, hitDistance))
         {
-            if (hit.collider.gameObject.layer == 3)
+            if (hit.collider.gameObject.layer == 3 && CanInteract)
             {
+                var interactObj = hit.transform.gameObject.GetComponent<IInteractable>();
+                
                 interactPanel.SetActive(true);
-                interactPanel.GetComponent<Text>().text = "[" + KeyToInteract + "] - Взаимодействовать";
+                interactPanel.GetComponent<Text>().text = "[" + KeyToInteract + "] - " + interactObj.ActionText();
 
                 Debug.DrawRay(ray.origin, ray.direction * hitDistance, Color.blue);
 
                 if (Input.GetKeyDown((KeyCode)Enum.Parse(typeof(KeyCode), KeyToInteract.ToString())))
                 {
-                    hit.transform.gameObject.GetComponent<IInteractable>().Interact();
+                    interactObj.Interact();
                 }
             }
             else

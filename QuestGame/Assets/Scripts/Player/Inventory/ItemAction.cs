@@ -8,12 +8,12 @@ public class ItemAction : MonoBehaviour, IPointerDownHandler, IPointerExitHandle
 {
     [SerializeField]
     private GameObject chooseActionWindow;
-
-    private InventoryField inventoryField;
+    private InventoryFieldController inventoryController;
 
     private void Awake()
     {
-        inventoryField = transform.parent.GetComponent<InventoryField>();
+        inventoryController = GameObject.Find("InventoryController")
+                                        .GetComponent<InventoryFieldController>();
         chooseActionWindow.SetActive(false);
     }
 
@@ -32,8 +32,8 @@ public class ItemAction : MonoBehaviour, IPointerDownHandler, IPointerExitHandle
 
     public void Drop()
     {
-        var droppedItem = inventoryField.questObjects[this];
+        var droppedItem = inventoryController.questObjects[this];
         droppedItem.Drop();
-        inventoryField.Drop(droppedItem);
+        inventoryController.Drop(droppedItem);
     }
 }
