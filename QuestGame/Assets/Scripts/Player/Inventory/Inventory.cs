@@ -18,7 +18,7 @@ public static class Inventory
     static Inventory()
     {
         inventory = new List<QuestObject>();
-        capacity = 0.5;
+        capacity = 6;
         currentWeihgt = 0;
     }
 
@@ -29,9 +29,9 @@ public static class Inventory
 
     public static void Add(QuestObject questObject)
     {
-        questObject.gameObject.SetActive(false);
         if (currentWeihgt + questObject.Weight <= capacity)
         {
+            questObject.gameObject.SetActive(false);
             currentWeihgt += questObject.Weight;
             inventory.Add(questObject);
             Debug.Log(questObject.Name);
@@ -45,7 +45,8 @@ public static class Inventory
     public static void Drop(QuestObject questObject)
     {
         if (questObject == EquipedItem)
-            Unequip();
+            Unequip(); 
+        inventoryController.Drop(questObject);
         questObject.gameObject.SetActive(true);
         currentWeihgt -= questObject.Weight;
         inventory.Remove(questObject);
@@ -58,6 +59,7 @@ public static class Inventory
     {
         EquipedItem = questObject;
         questObject.gameObject.SetActive(true);
+        inventoryController.Equip(EquipedItem);
     }
 
     public static void Unequip()

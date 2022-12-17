@@ -24,10 +24,15 @@ public class LeverPuzzleInteract : MonoBehaviour, IInteractable
     {
         if (LeverCanvas.gameObject.activeSelf && Input.GetKeyDown(KeyCode.Escape))
         {
-            collider.enabled = true;
-            windowsController.CloseWindow(LeverCanvas);
-            cinemachine.Follow = previousCameraPoint;
+            ExitPuzzle();
         }
+    }
+
+    public void ExitPuzzle()
+    {
+        collider.enabled = true;
+        windowsController.CloseWindow(LeverCanvas);
+        cinemachine.Follow = previousCameraPoint;
     }
 
     public string ActionText()

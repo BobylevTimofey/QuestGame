@@ -41,6 +41,6 @@ public class IronDeposit : MonoBehaviour
 
     private void SpawnIronOre()
     {
-        Instantiate(IronOre, transform.position + new Vector3(0, 1), Quaternion.identity);
+        Instantiate(IronOre, transform.position + new Vector3(0, 0.5f), Quaternion.identity);
     }
 }

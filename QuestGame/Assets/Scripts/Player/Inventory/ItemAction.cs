@@ -35,7 +35,6 @@ public class ItemAction : MonoBehaviour, IPointerDownHandler, IPointerExitHandle
     {
         var droppedItem = inventoryController.QuestObjects[this];
         droppedItem.Drop();
-        inventoryController.Drop(droppedItem);
     }
 
     public void Equip()
@@ -43,7 +42,5 @@ public class ItemAction : MonoBehaviour, IPointerDownHandler, IPointerExitHandle
         inventoryController.Unequip();
         var equipedItem = inventoryController.QuestObjects[this];
         equipedItem.Equip();
-        inventoryController.Equip(equipedItem);
-
     }
 }
