@@ -13,6 +13,8 @@ public class Interactive : MonoBehaviour
     private char KeyToInteract;
     [SerializeField]
     private GameObject interactPanel;
+    [SerializeField]
+    private Animator animator;
     private Camera cam;
     private Ray ray;
     private RaycastHit hit;
@@ -23,7 +25,7 @@ public class Interactive : MonoBehaviour
 
     private void Awake()
     {
-        CanInteract= true;
+        CanInteract = true;
         interactPanel.SetActive(false);
         cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
     }
@@ -45,7 +47,7 @@ public class Interactive : MonoBehaviour
             if (hit.collider.gameObject.layer == 3 && CanInteract)
             {
                 var interactObj = hit.transform.gameObject.GetComponent<IInteractable>();
-                
+
                 interactPanel.SetActive(true);
                 interactPanel.GetComponent<Text>().text = "[" + KeyToInteract + "] - " + interactObj.ActionText();
 
@@ -57,7 +59,9 @@ public class Interactive : MonoBehaviour
                 }
             }
             else
+            {
                 interactPanel.SetActive(false);
+            }
         }
         else
         {

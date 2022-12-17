@@ -13,9 +13,11 @@ public class DialoguePlayer : MonoBehaviour
     public Text TextOutput;
     private Queue<Phrase> phrasess;
     private bool IsPlaying;
+    private Animator newAnimator;
 
-    public void PlayDialogue(Queue<Phrase> phrases)
+    public void PlayDialogue(Queue<Phrase> phrases, Animator animator)
     {
+        newAnimator = animator;
         phrasess = phrases;
         windowsController.OpenWindow(DialogueCanvas);
         NextPhrase();
@@ -26,9 +28,12 @@ public class DialoguePlayer : MonoBehaviour
         if (phrasess.Count == 0)
         {
             EndDialogue();
+            newAnimator.SetBool("IsTalk", false);
             return;
         }
         var phrase = phrasess.Dequeue();
+        if (phrase.Name != "Игрок")
+            newAnimator.SetBool("IsTalk", true);
         NameOutput.text = phrase.Name;
         IsPlaying = true;
         StartCoroutine(TypePhrase(phrase.Text));

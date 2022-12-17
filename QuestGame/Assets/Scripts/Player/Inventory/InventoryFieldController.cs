@@ -10,20 +10,22 @@ public class InventoryFieldController : MonoBehaviour
     [SerializeField]
     private WindowsController windowsController;
 
-    [SerializeField] 
+    [SerializeField]
     private Transform inventoryField;
     [SerializeField]
     private Transform item;
     [SerializeField]
     private Transform pointToDrop;
     [SerializeField]
+    private Transform pointToEquip;
+    [SerializeField]
     private Window inventoryUI;
 
-    public Dictionary<ItemAction, QuestObject> questObjects;
+    public Dictionary<ItemAction, QuestObject> QuestObjects;
 
     private void Start()
     {
-        questObjects = new Dictionary<ItemAction, QuestObject>();
+        QuestObjects = new Dictionary<ItemAction, QuestObject>();
     }
 
     private void Update()
@@ -44,12 +46,29 @@ public class InventoryFieldController : MonoBehaviour
         newItem.GetChild(0).GetComponent<Image>().sprite = questObject.Icon;
         newItem.GetChild(1).GetComponent<Text>().text = questObject.Name;
         newItem.GetChild(2).GetComponent<Text>().text = questObject.Weight.ToString();
-        questObjects.Add(newItem.GetComponent<ItemAction>(), questObject);
+        QuestObjects.Add(newItem.GetComponent<ItemAction>(), questObject);
     }
 
     public void Drop(QuestObject questObject)
     {
+        questObject.transform.parent = null;
         questObject.transform.position = pointToDrop.transform.position;
+        questObject.transform.GetComponent<Collider>().enabled = true;
+        questObject.transform.GetComponent<Rigidbody>().isKinematic = false;
+    }
+
+    public void Equip(QuestObject questObject)
+    {
+        questObject.transform.GetComponent<Collider>().enabled = false;
+        questObject.transform.GetComponent<Rigidbody>().isKinematic = true;
+        questObject.transform.SetParent(pointToEquip.transform);
+        questObject.transform.localPosition = Vector3.zero;
+        questObject.transform.localRotation = Quaternion.Euler(0, 0, 90);
+    }
+
+    public void Unequip()
+    {
+        Inventory.Unequip();
     }
 
     public void OpenCloseInventory()

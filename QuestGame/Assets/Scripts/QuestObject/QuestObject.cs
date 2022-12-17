@@ -7,8 +7,8 @@ public abstract class QuestObject : MonoBehaviour, IInteractable
     public abstract double Weight { get; }
     public abstract string Name { get; }
     public Sprite Icon;
-    
-    public void Take() 
+
+    public void Take()
     {
         Inventory.Add(this);
     }
@@ -22,7 +22,12 @@ public abstract class QuestObject : MonoBehaviour, IInteractable
         Take();
     }
 
-    string IInteractable.ActionText()
+    public void Equip()
+    {
+        Inventory.Equip(this);
+    }
+
+    public string ActionText()
     {
         return "Взять " + Name;
     }

@@ -8,7 +8,6 @@ using System.Linq;
 public class WindowsController : MonoBehaviour
 {
     public List<Window> windowsList;
-    private bool canOpen;
 
     private void Awake()
     {

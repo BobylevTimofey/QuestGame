@@ -5,6 +5,7 @@ public abstract class NPC : MonoBehaviour, IInteractable
 {
     private DialogueManager dialogueManager;
     private DialoguePlayer dialoguePlayer;
+    private Animator animator;
     public abstract int NPCId { get; }
     public int DialogueId { get => CheckId(); }
 
@@ -23,11 +24,12 @@ public abstract class NPC : MonoBehaviour, IInteractable
     public void PlayDialogue()
     {
         var phrases = dialogueManager.GetDialogue(this);
-        dialoguePlayer.PlayDialogue(phrases);
+        dialoguePlayer.PlayDialogue(phrases, animator);
     }
 
     private void Awake()
     {
+        animator = transform.GetChild(0).GetComponent<Animator>();
         var dialogueController = GameObject.Find("DialogueController");
         dialogueManager = dialogueController.GetComponent<DialogueManager>();
         dialoguePlayer = dialogueController.GetComponent<DialoguePlayer>();

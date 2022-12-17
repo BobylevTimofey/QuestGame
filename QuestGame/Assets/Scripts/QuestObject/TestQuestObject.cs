@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class TestQuestObject : QuestObject
 {
-    public override double Weight => 0.1;
+    public override double Weight => 0.2;
 
-    public override string Name => "TestObgect";
+    public override string Name => "Молоток";
 }

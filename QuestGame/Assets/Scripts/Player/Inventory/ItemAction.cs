@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class ItemAction : MonoBehaviour, IPointerDownHandler, IPointerExitHandler
 {
@@ -32,8 +33,17 @@ public class ItemAction : MonoBehaviour, IPointerDownHandler, IPointerExitHandle
 
     public void Drop()
     {
-        var droppedItem = inventoryController.questObjects[this];
+        var droppedItem = inventoryController.QuestObjects[this];
         droppedItem.Drop();
         inventoryController.Drop(droppedItem);
+    }
+
+    public void Equip()
+    {
+        inventoryController.Unequip();
+        var equipedItem = inventoryController.QuestObjects[this];
+        equipedItem.Equip();
+        inventoryController.Equip(equipedItem);
+
     }
 }

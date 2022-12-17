@@ -5,7 +5,9 @@ using UnityEngine;
 public class Lever : MonoBehaviour
 {
     public float distance = 10f;
+    [SerializeField]
     private float speed = 7f;
+    [SerializeField]
     private float eps = 0.1f;
     private bool IsTopCollision;
     private bool IsBotCollision;
@@ -16,20 +18,20 @@ public class Lever : MonoBehaviour
     {
         Vector3 mousePosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, distance); // переменной записываються координаты мыши по иксу и игрику
         Vector3 objPosition = Camera.main.ScreenToWorldPoint(mousePosition); // переменной - объекту присваиваеться переменная с координатами мыши
-        Move(objPosition);
+        Move(mousePosition);
     }
 
     private void Move(Vector3 objPosition)
     {
-        var possition = transform.position;
-        if (objPosition.x - possition.x > eps && !IsRightCollision)
-            transform.position += new Vector3(speed * Time.deltaTime, 0);
-        else if (objPosition.x - possition.x < -eps && !IsLeftCollision)
-            transform.position -= new Vector3(speed * Time.deltaTime, 0);
-        else if (objPosition.y - possition.y > eps && !IsTopCollision)
-            transform.position += new Vector3(0, speed * Time.deltaTime);
-        else if (objPosition.y - possition.y < -eps && !IsBotCollision)
-            transform.position -= new Vector3(0, speed * Time.deltaTime);
+        var position = Camera.main.WorldToScreenPoint(transform.position);
+        if (objPosition.x - position.x > eps && !IsRightCollision)
+            transform.localPosition += new Vector3(speed * Time.deltaTime, 0);
+        else if (objPosition.x - position.x < -eps && !IsLeftCollision)
+            transform.localPosition -= new Vector3(speed * Time.deltaTime, 0);
+        else if (objPosition.y - position.y > eps && !IsTopCollision)
+            transform.localPosition += new Vector3(0, speed * Time.deltaTime);
+        else if (objPosition.y - position.y < -eps && !IsBotCollision)
+            transform.localPosition -= new Vector3(0, speed * Time.deltaTime);
     }
 
     public void SetCollision(Sides side, bool value)

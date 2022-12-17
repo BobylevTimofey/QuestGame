@@ -7,11 +7,14 @@ public static class Inventory
 {
 
     public static List<QuestObject> inventory;
+    public static QuestObject EquipedItem;
+
     private static double capacity;
     private static double currentWeihgt;
-    private static InventoryFieldController inventoryController 
+    private static InventoryFieldController inventoryController
         = GameObject.Find("InventoryController")
                     .GetComponent<InventoryFieldController>();
+
     static Inventory()
     {
         inventory = new List<QuestObject>();
@@ -34,17 +37,34 @@ public static class Inventory
             Debug.Log(questObject.Name);
         }
         else
+        {
             Debug.Log("Bag is full");
+        }
     }
 
     public static void Drop(QuestObject questObject)
     {
+        if (questObject == EquipedItem)
+            Unequip();
         questObject.gameObject.SetActive(true);
         currentWeihgt -= questObject.Weight;
         inventory.Remove(questObject);
         ClearInventoryItems();
         LoadInventoryItems();
 
+    }
+
+    public static void Equip(QuestObject questObject)
+    {
+        EquipedItem = questObject;
+        questObject.gameObject.SetActive(true);
+    }
+
+    public static void Unequip()
+    {
+        if (EquipedItem != null)
+            EquipedItem.gameObject.SetActive(false);
+        EquipedItem = null;
     }
 
     public static void LoadInventoryItems()

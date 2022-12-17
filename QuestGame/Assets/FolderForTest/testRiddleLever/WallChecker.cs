@@ -9,13 +9,13 @@ public class WallChecker : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.name != "Finish")
+        if (other.name.Contains("Cube"))
             Lever.SetCollision(side, true);
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.name != "Finish")
+        if (other.name.Contains("Cube"))
             Lever.SetCollision(side, false);
     }
 }
