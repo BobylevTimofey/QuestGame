@@ -24,6 +24,8 @@ public class Lever : MonoBehaviour
     private void Move(Vector3 objPosition)
     {
         var position = Camera.main.WorldToScreenPoint(transform.position);
+        Debug.Log("рычаг" + position);
+        Debug.Log("мышь" + objPosition);
         if (objPosition.x - position.x > eps && !IsRightCollision)
             transform.localPosition += new Vector3(speed * Time.deltaTime, 0);
         else if (objPosition.x - position.x < -eps && !IsLeftCollision)
@@ -37,12 +39,24 @@ public class Lever : MonoBehaviour
     public void SetCollision(Sides side, bool value)
     {
         if (side == Sides.Right)
+        {
             IsRightCollision = value;
+            Debug.Log(1);
+        }
         if (side == Sides.Left)
+        {
             IsLeftCollision = value;
+            Debug.Log(2);
+        }
         if (side == Sides.Top)
+        {
             IsTopCollision = value;
+            Debug.Log(3);
+        }
         if (side == Sides.Bot)
+        {
             IsBotCollision = value;
+            Debug.Log(4);
+        }
     }
 }

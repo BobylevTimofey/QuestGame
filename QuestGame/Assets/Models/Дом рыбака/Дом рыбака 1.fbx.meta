@@ -1,0 +1,216 @@
+fileFormatVersion: 2
+guid: 6c310d0b901efea4d97ffa5ec0c6bf1c
+ModelImporter:
+  serializedVersion: 21300
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u0411\u0430\u043B\u043A\u0438 \u0434\u0435\u0440\u0435\u0432\u043E"
+    second: {fileID: 2100000, guid: f63a96ba29634a843a8482c20f14aac0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u0414\u0432\u0435\u0440\u044C"
+    second: {fileID: 2100000, guid: 1afdd429b586a96418fe9fc84da911a4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u041A\u0438\u0440\u043F\u0438\u0447"
+    second: {fileID: 2100000, guid: 507b4c5729ffbc4478cf4c2cb2748392, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u041A\u0440\u044B\u0448\u0430"
+    second: {fileID: 2100000, guid: 345b1cce70ebbcc4aaa5f8c6979370bb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u041E\u0431\u0432\u043E\u0434\u043A\u0430 \u0440\u044B\u0431\u044B"
+    second: {fileID: 2100000, guid: 8f4fbbcbd3e7091458f4e9ddf53d5b05, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u041E\u043A\u043D\u0430"
+    second: {fileID: 2100000, guid: 485e8d54801c7884c8c3e1948fa38810, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u0420\u044B\u0431\u043A\u0430"
+    second: {fileID: 2100000, guid: f7a9fd2479b75f241b5ec7d9029f2c02, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: 4K-roof_color-ao
+    second: {fileID: 2800000, guid: 8c7795b2dec92a24a88cbc9a17420e1a, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: 4K-roof_color-diffuse
+    second: {fileID: 2800000, guid: c35ad1af69a85234bb5a7c942e9a84b7, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: 4K-roof_color-specular
+    second: {fileID: 2800000, guid: 88d4caf90508e4a42ae7eb1b7d68449c, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: 4K-wood_plank_1-ao
+    second: {fileID: 2800000, guid: d10cae412caf79140ba03eea045efa2d, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: 4K-wood_plank_1-diffuse
+    second: {fileID: 2800000, guid: 26decf1dc4796704fb7f61bb2c84ece0, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: 4K-wood_plank_1-specular
+    second: {fileID: 2800000, guid: 5f30dfd35080c8340a558f1245e88f19, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Planks022_2K_AmbientOcclusion
+    second: {fileID: 2800000, guid: 6e08f7589ec9ce9478496f42a7dede69, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Planks022_2K_Color
+    second: {fileID: 2800000, guid: 9f6c24697001dd544bc480b6097e19d1, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Planks022_2K_Roughness
+    second: {fileID: 2800000, guid: 48093e54d7725d44dbc303cb642f82b3, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: RoofingTiles010_2K_AmbientOcclusion
+    second: {fileID: 2800000, guid: f4281ff76361a464889bbdb316f20694, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: RoofingTiles010_2K_Color
+    second: {fileID: 2800000, guid: c44f51face5413146b9d60ee94794c6c, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: RoofingTiles010_2K_Roughness
+    second: {fileID: 2800000, guid: 9e1e60d495673774598b1ec05fc133e6, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Tiles019_2K_AmbientOcclusion
+    second: {fileID: 2800000, guid: 56f80a64927896c49aa83c1709e357e2, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Tiles019_2K_Color
+    second: {fileID: 2800000, guid: 82c5c3d139c53f443943614d6ce30088, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Tiles019_2K_Roughness
+    second: {fileID: 2800000, guid: e0a5daa3228ff4b4e9812321301c7e34, type: 3}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 1
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,7 +1,6 @@
 using StarterAssets;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Animations;
 using UnityEngine;
 using System.Linq;
 
@@ -25,7 +24,7 @@ public class WindowsController : MonoBehaviour
 
     public void OpenWindow(Window window)
     {
-        if (window.openFromOtherWindows)
+        if (window.OpenFromOtherWindows)
         {
             window.gameObject.SetActive(true);
             CloseOtherWindows(window);

@@ -7,7 +7,11 @@ public class Finish : MonoBehaviour
     public GameObject Lever;
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Прошел!");
-        LevelChecker.IsSolveQuestLever = true;
+        if (LevelChecker.IsSolveQuestLever == false)
+        {
+            Debug.Log("Прошел!");
+            Message.Instance.LoadMessage("Получилось!", 1);
+            LevelChecker.IsSolveQuestLever = true;
+        }
     }
 }

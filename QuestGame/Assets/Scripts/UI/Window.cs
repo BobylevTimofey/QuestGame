@@ -11,7 +11,9 @@ public class Window : MonoBehaviour
     private bool enableCursor;
     [SerializeField]
     private bool stopTime;
-    public bool openFromOtherWindows;
+    public bool OpenFromOtherWindows;
+    [SerializeField]
+    private bool closeByEscape;
 
     private GameObject player;
     private ThirdPersonController controller;
@@ -26,6 +28,12 @@ public class Window : MonoBehaviour
         controller = player.GetComponent<ThirdPersonController>();
         starterAssetsInputs = player.GetComponent<StarterAssetsInputs>();
         interactive = player.GetComponent<Interactive>();
+    }
+
+    private void Update()
+    {
+        if (closeByEscape && Input.GetKeyDown(KeyCode.Escape))
+            CloseWindow();
     }
 
     public void ApplyParameters()
@@ -71,5 +79,10 @@ public class Window : MonoBehaviour
     private void StopTime()
     {
         Time.timeScale = 0f;
+    }
+
+    private void CloseWindow()
+    {
+        windowsController.CloseWindow(this);
     }
 }

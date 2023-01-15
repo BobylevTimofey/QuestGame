@@ -45,7 +45,7 @@ public class InventoryFieldController : MonoBehaviour
         var newItem = Instantiate(item, inventoryField);
         newItem.GetChild(0).GetComponent<Image>().sprite = questObject.Icon;
         newItem.GetChild(1).GetComponent<Text>().text = questObject.Name;
-        newItem.GetChild(2).GetComponent<Text>().text = questObject.Weight.ToString();
+        newItem.GetChild(2).GetComponent<Text>().text = "Вес: " + questObject.Weight.ToString();
         QuestObjects.Add(newItem.GetComponent<ItemAction>(), questObject);
     }
 
@@ -62,8 +62,16 @@ public class InventoryFieldController : MonoBehaviour
         questObject.transform.GetComponent<Collider>().enabled = false;
         questObject.transform.GetComponent<Rigidbody>().isKinematic = true;
         questObject.transform.SetParent(pointToEquip.transform);
+        questObject.transform.localPosition = questObject.EquipPosition;
+        questObject.transform.localRotation = questObject.EquipRotation;
+    }
+    public void Place(QuestObject questObject, Transform place)
+    {
+        questObject.transform.GetComponent<Collider>().enabled = true;
+        questObject.transform.SetParent(place);
         questObject.transform.localPosition = Vector3.zero;
-        questObject.transform.localRotation = Quaternion.Euler(0, 0, 90);
+        questObject.transform.localRotation = Quaternion.Euler(0, 0, 0);
+
     }
 
     public void Unequip()
@@ -76,11 +84,11 @@ public class InventoryFieldController : MonoBehaviour
         if (!inventoryUI.gameObject.activeSelf)
         {
             windowsController.OpenWindow(inventoryUI);
+            Inventory.ClearInventoryItems();
             Inventory.LoadInventoryItems();
         }
         else
         {
-            Inventory.ClearInventoryItems();
             windowsController.CloseWindow(inventoryUI);
         }
     }
