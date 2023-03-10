@@ -31,6 +31,7 @@ public static class Inventory
     {
         if (currentWeihgt + questObject.Weight <= capacity)
         {
+            questObject.transform.parent = null;
             questObject.gameObject.SetActive(false);
             currentWeihgt += questObject.Weight;
             inventory.Add(questObject);
@@ -38,14 +39,14 @@ public static class Inventory
         }
         else
         {
-            Debug.Log("Bag is full");
+            Message.Instance.LoadMessage("–юкзак полон!", 1);
         }
     }
 
     public static void Drop(QuestObject questObject)
     {
         if (questObject == EquipedItem)
-            Unequip(); 
+            Unequip();
         inventoryController.Drop(questObject);
         questObject.gameObject.SetActive(true);
         currentWeihgt -= questObject.Weight;
@@ -67,6 +68,15 @@ public static class Inventory
         if (EquipedItem != null)
             EquipedItem.gameObject.SetActive(false);
         EquipedItem = null;
+    }
+
+    public static void Place(QuestObject questObject, Transform place)
+    {
+        Unequip();
+        questObject.gameObject.SetActive(true);
+        inventoryController.Place(questObject, place);
+        currentWeihgt -= questObject.Weight;
+        inventory.Remove(questObject);
     }
 
     public static void LoadInventoryItems()

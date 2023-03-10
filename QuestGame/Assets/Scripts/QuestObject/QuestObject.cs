@@ -6,6 +6,9 @@ public abstract class QuestObject : MonoBehaviour, IInteractable
 {
     public abstract double Weight { get; }
     public abstract string Name { get; }
+    public abstract Vector3 EquipPosition { get; }
+    public abstract Quaternion EquipRotation { get; }
+
     public Sprite Icon;
 
     public void Take()
@@ -25,6 +28,11 @@ public abstract class QuestObject : MonoBehaviour, IInteractable
     public void Equip()
     {
         Inventory.Equip(this);
+    }
+
+    public void Place(Transform place)
+    {
+        Inventory.Place(this, place);
     }
 
     public string ActionText()
