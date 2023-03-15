@@ -58,8 +58,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 706688eefc042214a9f7de2acd608b37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Lever: {fileID: 7106024039646091589}
-  side: 2
 --- !u!1 &229140755
 GameObject:
   m_ObjectHideFlags: 0
@@ -118,8 +116,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 706688eefc042214a9f7de2acd608b37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Lever: {fileID: 7106024039646091589}
-  side: 1
 --- !u!1 &824175775
 GameObject:
   m_ObjectHideFlags: 0
@@ -178,8 +174,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 706688eefc042214a9f7de2acd608b37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Lever: {fileID: 7106024039646091589}
-  side: 0
 --- !u!1 &1806237832
 GameObject:
   m_ObjectHideFlags: 0
@@ -238,8 +232,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 706688eefc042214a9f7de2acd608b37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Lever: {fileID: 7106024039646091589}
-  side: 3
 --- !u!1 &267018592735883119
 GameObject:
   m_ObjectHideFlags: 0
@@ -388,9 +380,9 @@ GameObject:
   - component: {fileID: 6053530560892454714}
   - component: {fileID: 4774006789874787662}
   - component: {fileID: 7767402898087078868}
-  - component: {fileID: 7106024039646091589}
   - component: {fileID: 7106024039646091588}
   - component: {fileID: 7106024039646091587}
+  - component: {fileID: 8347857009839020734}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: Untagged
@@ -468,21 +460,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &7106024039646091589
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4215910123563602699}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1e8ae93b327c894bbab43d406b816b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  distance: 5
-  speed: 3
-  eps: 15
 --- !u!54 &7106024039646091588
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -512,6 +489,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.2519957, y: 0.05199535, z: 0.0519953}
   m_Center: {x: -0.025997832, y: -0.0010508057, z: 0.0010818765}
+--- !u!114 &8347857009839020734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4215910123563602699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1e8ae93b327c894bbab43d406b816b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distance: 10
+  speed: 7
+  eps: 0.1
 --- !u!1 &7869624432528646704
 GameObject:
   m_ObjectHideFlags: 0

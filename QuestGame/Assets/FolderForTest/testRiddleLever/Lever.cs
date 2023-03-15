@@ -13,18 +13,23 @@ public class Lever : MonoBehaviour
     private bool IsBotCollision;
     private bool IsRightCollision;
     private bool IsLeftCollision;
+    private Vector3 mousePositionInStart;
 
+    private void OnMouseEnter()
+    {
+        mousePositionInStart = new Vector3(Input.mousePosition.x, Input.mousePosition.y, distance);
+    }
     void OnMouseDrag()
     {
-        Vector3 mousePosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, distance); // переменной записываються координаты мыши по иксу и игрику
-        Vector3 objPosition = Camera.main.ScreenToWorldPoint(mousePosition); // переменной - объекту присваиваеться переменная с координатами мыши
+        Vector3 mousePosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, distance) - mousePositionInStart; ; // переменной записываються координаты мыши по иксу и игрику
+        //Vector3 objPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition); // переменной - объекту присваиваеться переменная с координатами мыши
         Move(mousePosition);
     }
 
     private void Move(Vector3 objPosition)
     {
-        var position = Camera.main.WorldToScreenPoint(transform.position);
-        Debug.Log("рычаг" + position);
+        var position = transform.position;
+        Debug.Log("рычаг" + transform.localPosition);
         Debug.Log("мышь" + objPosition);
         if (objPosition.x - position.x > eps && !IsRightCollision)
             transform.localPosition += new Vector3(speed * Time.deltaTime, 0);
