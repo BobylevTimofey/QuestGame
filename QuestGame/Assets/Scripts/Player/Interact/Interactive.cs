@@ -46,16 +46,15 @@ public class Interactive : MonoBehaviour
         {
             if (hit.collider.gameObject.layer == 3 && CanInteract)
             {
-                var interactObj = hit.transform.gameObject.GetComponent<IInteractable>();
-
+                var interactObject = hit.transform.gameObject.GetComponent<IInteractable>();
                 interactPanel.SetActive(true);
-                interactPanel.GetComponent<Text>().text = "[" + KeyToInteract + "] - " + interactObj.ActionText();
-
+                interactPanel.GetComponent<Text>().text = "[" + KeyToInteract + "] - " + interactObject.ActionText();
+                
                 Debug.DrawRay(ray.origin, ray.direction * hitDistance, Color.blue);
 
                 if (Input.GetKeyDown((KeyCode)Enum.Parse(typeof(KeyCode), KeyToInteract.ToString())))
                 {
-                    interactObj.Interact();
+                    interactObject.Interact();
                 }
             }
             else

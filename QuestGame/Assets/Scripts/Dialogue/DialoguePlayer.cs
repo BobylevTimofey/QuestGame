@@ -25,7 +25,7 @@ public class DialoguePlayer : MonoBehaviour
 
     public void NextPhrase()
     {
-        if (phrasess.Count == 0)
+        if (phrasess.Count == 0 || Input.GetKeyDown(KeyCode.Escape))
         {
             EndDialogue();
             newAnimator.SetBool("IsTalk", false);
