@@ -15,6 +15,8 @@ public class Puzzle : MonoBehaviour, IInteractable
     private CinemachineVirtualCamera cinemachine;
     [SerializeField]
     private Transform cameraPoint;
+    [SerializeField]
+    private Lever lever;
     private BoxCollider _collider;
     private Transform previousCameraPoint;
     private void Awake()
@@ -35,6 +37,7 @@ public class Puzzle : MonoBehaviour, IInteractable
         windowsController.CloseWindow(PuzzleCanvas);
         _collider.enabled = true;
         cinemachine.Follow = previousCameraPoint;
+        lever.CanMove = false;
     }
 
     public string ActionText()
@@ -47,5 +50,6 @@ public class Puzzle : MonoBehaviour, IInteractable
         cinemachine.Follow = cameraPoint;
         windowsController.OpenWindow(PuzzleCanvas);
         _collider.enabled = false;
+        lever.CanMove = true;
     }
 }

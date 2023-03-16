@@ -4,64 +4,38 @@ using UnityEngine;
 
 public class Lever : MonoBehaviour
 {
-    public float distance = 10f;
+    public bool CanMove;
+    private Ray ray;
+    private RaycastHit hit;
     [SerializeField]
-    private float speed = 7f;
-    [SerializeField]
-    private float eps = 0.1f;
-    private bool IsTopCollision;
-    private bool IsBotCollision;
-    private bool IsRightCollision;
-    private bool IsLeftCollision;
-    private Vector3 mousePositionInStart;
+    private LayerMask wayLayerMask;
 
-    private void OnMouseEnter()
+    private void Update()
     {
-        mousePositionInStart = new Vector3(Input.mousePosition.x, Input.mousePosition.y, distance);
-    }
-    void OnMouseDrag()
-    {
-        Vector3 mousePosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, distance) - mousePositionInStart; ; // переменной записываються координаты мыши по иксу и игрику
-        //Vector3 objPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition); // переменной - объекту присваиваеться переменная с координатами мыши
-        Move(mousePosition);
+        Ray();
+        Interactive();
     }
 
-    private void Move(Vector3 objPosition)
+    private void Ray()
     {
-        var position = transform.position;
-        Debug.Log("рычаг" + transform.localPosition);
-        Debug.Log("мышь" + objPosition);
-        if (objPosition.x - position.x > eps && !IsRightCollision)
-            transform.localPosition += new Vector3(speed * Time.deltaTime, 0);
-        else if (objPosition.x - position.x < -eps && !IsLeftCollision)
-            transform.localPosition -= new Vector3(speed * Time.deltaTime, 0);
-        else if (objPosition.y - position.y > eps && !IsTopCollision)
-            transform.localPosition += new Vector3(0, speed * Time.deltaTime);
-        else if (objPosition.y - position.y < -eps && !IsBotCollision)
-            transform.localPosition -= new Vector3(0, speed * Time.deltaTime);
+        ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Debug.DrawRay(ray.origin, ray.direction, Color.red);
     }
-
-    public void SetCollision(Sides side, bool value)
+    private void Interactive()
     {
-        if (side == Sides.Right)
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity, wayLayerMask) && CanMove && Input.GetMouseButton(0))
         {
-            IsRightCollision = value;
-            Debug.Log(1);
-        }
-        if (side == Sides.Left)
-        {
-            IsLeftCollision = value;
-            Debug.Log(2);
-        }
-        if (side == Sides.Top)
-        {
-            IsTopCollision = value;
-            Debug.Log(3);
-        }
-        if (side == Sides.Bot)
-        {
-            IsBotCollision = value;
-            Debug.Log(4);
+            Collider[] colliders = Physics.OverlapSphere(transform.position, 0.05f, wayLayerMask);
+            if (colliders.Length > 0)
+            {
+                foreach (Collider collider in colliders)
+                {
+                    if (collider.gameObject == hit.collider.gameObject)
+                    {
+                        transform.position = Vector3.MoveTowards(transform.position, hit.point, Time.deltaTime);
+                    }
+                }
+            }
         }
     }
 }
