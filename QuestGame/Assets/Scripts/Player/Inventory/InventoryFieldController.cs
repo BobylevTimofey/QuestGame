@@ -22,6 +22,7 @@ public class InventoryFieldController : MonoBehaviour
     private Window inventoryUI;
 
     public Dictionary<ItemAction, QuestObject> QuestObjects;
+    public bool isBlocked = false;
 
     private void Start()
     {
@@ -30,7 +31,7 @@ public class InventoryFieldController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) && !isBlocked)
             OpenCloseInventory();
     }
 
