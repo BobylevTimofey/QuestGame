@@ -90,4 +90,14 @@ public static class Inventory
     {
         inventoryController.ClearField();
     }
+
+    public static void BlockInventoryOpen()
+    {
+        inventoryController.isBlocked = true;
+    }
+
+    public static void UnblockInventoryOpen()
+    {
+        inventoryController.isBlocked = false;
+    }
 }
