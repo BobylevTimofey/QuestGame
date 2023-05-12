@@ -6,6 +6,9 @@ TagManager:
   tags:
   - CinemachineTarget
   - StartRiddleFind
+  - StartRiddleFindThree
+  - StartRiddleFindTwo
+  - Water
   layers:
   - Default
   - TransparentFX

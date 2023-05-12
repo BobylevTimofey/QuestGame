@@ -55,7 +55,7 @@ public class FindPartThreeController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!isStart && other.gameObject.tag == "StartRiddleFind")
+        if (!isStart && other.gameObject.tag == "StartRiddleFindThree")
             StartRiddle();
     }
 }
