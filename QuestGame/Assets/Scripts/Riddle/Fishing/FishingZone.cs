@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FishingZone : IInteractable
+public class FishingZone : MonoBehaviour, IInteractable
 {
     [SerializeField] private GameObject fishingRod;
 
@@ -15,7 +15,8 @@ public class FishingZone : IInteractable
 
     public void Interact()
     {
-        throw new System.NotImplementedException();
+        if (Inventory.inventory.Contains(fishingRod.GetComponent<FishingRod>()))
+            GetComponent<FishingRiddle>().StartFishing();
     }
 
 }
