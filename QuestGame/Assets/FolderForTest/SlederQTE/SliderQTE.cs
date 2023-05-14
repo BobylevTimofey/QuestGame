@@ -1,3 +1,5 @@
+using Cinemachine;
+using StarterAssets;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,6 +17,12 @@ public class SliderQTE : MonoBehaviour, IInteractable
     private Timer timer;
     [SerializeField]
     private ParticleSystem explosion;
+    [SerializeField]
+    private Light lightning;
+    [SerializeField]
+    private WindowsController windowsController;
+    [SerializeField]
+    private Window sliderQTEWindow;
     private int countStep = 3;
     private int currentStep;
     private int initialTimeRiddle = 20;
@@ -23,6 +31,18 @@ public class SliderQTE : MonoBehaviour, IInteractable
     private bool isStop;
     private bool isForwardRun = true;
     private int timeMessage = 3;
+
+    [SerializeField]
+    private CinemachineVirtualCamera cinemachine;
+    private Transform previousCameraPoint;
+    [SerializeField]
+    private Transform cameraPoint;
+
+    private void Awake()
+    {
+        lightning.enabled = false;
+        previousCameraPoint = cinemachine.Follow;
+    }
     public string ActionText()
     {
         if (!isCompleted)
@@ -33,7 +53,11 @@ public class SliderQTE : MonoBehaviour, IInteractable
     public void Interact()
     {
         if (!isCompleted && !isStart)
+        {
+            windowsController.OpenWindow(sliderQTEWindow);
             StartStep();
+            cinemachine.Follow = cameraPoint;
+        }
     }
 
     private void StartStep()
@@ -64,6 +88,7 @@ public class SliderQTE : MonoBehaviour, IInteractable
 
     private void Update()
     {
+        ExitByESC();
         if (isStart & !isStop)
             RunHandle();
         if (!isCompleted && isStart && Input.GetKeyDown(KeyCode.F))
@@ -96,6 +121,9 @@ public class SliderQTE : MonoBehaviour, IInteractable
         isCompleted = true;
         ClearRiddle();
         explosion.Play();
+        lightning.enabled = true;
+        cinemachine.Follow = previousCameraPoint;
+        windowsController.CloseWindow(sliderQTEWindow);
     }
 
     private void RunHandle()
@@ -116,12 +144,25 @@ public class SliderQTE : MonoBehaviour, IInteractable
     {
         Message.Instance.LoadMessage("Не успел", timeMessage);
         ClearRiddle();
+        cinemachine.Follow = previousCameraPoint;
+        windowsController.CloseWindow(sliderQTEWindow);
     }
 
     private void LostGame()
     {
         Message.Instance.LoadMessage("Невовремя", timeMessage);
         ClearRiddle();
+        cinemachine.Follow = previousCameraPoint;
+        windowsController.CloseWindow(sliderQTEWindow);
+    }
+
+    private void ExitByESC()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            ClearRiddle();
+            cinemachine.Follow = previousCameraPoint;
+        }
     }
 
     private void ClearRiddle()

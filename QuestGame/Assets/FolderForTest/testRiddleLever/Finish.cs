@@ -23,7 +23,7 @@ public class Finish : MonoBehaviour
 
     private void Win()
     {
-        lever.CanMove = false;
+        Destroy(lever.GetComponent<Collider>());
         lever.transform.SetParent(transform);
         var winPos = new Vector3(4, 0, 0);
         lever.transform.localPosition = Vector3.MoveTowards(lever.transform.localPosition, winPos, 5 * Time.deltaTime);

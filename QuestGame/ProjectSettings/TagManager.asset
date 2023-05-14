@@ -18,8 +18,13 @@ TagManager:
   - UI
   - Player
   - WayPuzzle
+<<<<<<< HEAD
   - PostProcessing
   - MiniMapIcons
+=======
+  - PartOfGearPuzzle
+  - 
+>>>>>>> 84578bfd13c96da516053855298a1c6a7e277c5b
   - 
   - 
   - 
