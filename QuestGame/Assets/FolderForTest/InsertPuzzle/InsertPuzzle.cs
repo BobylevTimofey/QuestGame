@@ -1,3 +1,4 @@
+using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,11 +6,17 @@ using UnityEngine;
 public class InsertPuzzle : MonoBehaviour
 {
     public List<PartPuzzle> PartsPuzzle;
+    [SerializeField]
+    private CinemachineVirtualCamera cinemachine;
+    [SerializeField]
+    private Transform cutsceneCameraPoint;
+    private Transform previousCameraPoint;
+    private Animator animator;
 
     private void Awake()
     {
-        for (int i = 0; i < transform.childCount; i++)
-            PartsPuzzle.Add(transform.GetChild(i).GetChild(0).GetComponent<PartPuzzle>());
+        animator = GetComponent<Animator>();
+        previousCameraPoint = cinemachine.Follow;
     }
     public void CheckPuzzle()
     {
@@ -24,7 +31,17 @@ public class InsertPuzzle : MonoBehaviour
 
     private void performVictoriousActions()
     {
-        Message.Instance.LoadMessage("Правильно!", 1);
-        Debug.Log("Квест выполнен");
+        PlayCutscene();
+    }
+
+    public void PlayCutscene()
+    {
+        animator.Play("OpenGatesDown");
+        cinemachine.Follow = cutsceneCameraPoint;
+    }
+
+    public void EndCutscene()
+    {
+        cinemachine.Follow = previousCameraPoint;
     }
 }

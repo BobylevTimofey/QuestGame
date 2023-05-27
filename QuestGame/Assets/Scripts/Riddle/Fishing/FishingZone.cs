@@ -4,19 +4,19 @@ using UnityEngine;
 
 public class FishingZone : MonoBehaviour, IInteractable
 {
-    [SerializeField] private GameObject fishingRod;
+    [SerializeField] private QuestObject fishingRod;
 
     public string ActionText()
     {
-        if (Inventory.inventory.Contains(fishingRod.GetComponent<FishingRod>()))
-            return "Забросить удочку";
-        return "Для рыбалки нет удочки";
+        return "Забросить удочку";
     }
 
     public void Interact()
     {
-        if (Inventory.inventory.Contains(fishingRod.GetComponent<FishingRod>()))
+        if (Inventory.EquipedItem == fishingRod)
             GetComponent<FishingRiddle>().StartFishing();
+        else
+            Message.Instance.LoadMessage("Необходимо взять удочку", 1);
     }
 
 }

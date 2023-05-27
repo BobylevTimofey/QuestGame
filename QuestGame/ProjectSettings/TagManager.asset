@@ -5,10 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - CinemachineTarget
-  - StartRiddleFind
   - StartRiddleFindThree
-  - StartRiddleFindTwo
   - Water
+  - StartRiddleFindTwo
   layers:
   - Default
   - TransparentFX
@@ -18,14 +17,9 @@ TagManager:
   - UI
   - Player
   - WayPuzzle
-<<<<<<< HEAD
-  - PostProcessing
-  - MiniMapIcons
-=======
   - PartOfGearPuzzle
-  - 
->>>>>>> 84578bfd13c96da516053855298a1c6a7e277c5b
-  - 
+  - MiniMapIcons
+  - Mountain
   - 
   - 
   - 

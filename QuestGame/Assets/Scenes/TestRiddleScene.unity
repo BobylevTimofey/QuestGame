@@ -1116,7 +1116,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ca8ffe5cba7ca44abb6deaf7284ef8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeFishing: 10
+  windowsController: {fileID: 0}
+  fishingWindow: {fileID: 0}
   minWaitSeconds: 2
   maxWaitSeconds: 5
   fishingRod: {fileID: 302907060}
@@ -8541,6 +8542,11 @@ MonoBehaviour:
   sliderMax: {fileID: 706646958}
   timer: {fileID: 1024637197}
   explosion: {fileID: 142960036}
+  lightning: {fileID: 0}
+  windowsController: {fileID: 0}
+  sliderQTEWindow: {fileID: 0}
+  cinemachine: {fileID: 0}
+  cameraPoint: {fileID: 0}
 --- !u!1 &238412575
 GameObject:
   m_ObjectHideFlags: 0
@@ -9679,7 +9685,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   KeyToInteract: 70
   interactPanel: {fileID: 457056758}
-  animator: {fileID: 322667998}
   CanInteract: 0
   hitDistance: 6.5
 --- !u!114 &322667992
@@ -28459,6 +28464,8 @@ MonoBehaviour:
   PartsPuzzle:
   - {fileID: 1961489488}
   - {fileID: 1968566074}
+  cinemachine: {fileID: 0}
+  cutsceneCameraPoint: {fileID: 0}
 --- !u!4 &1595658299
 Transform:
   m_ObjectHideFlags: 0

@@ -55,7 +55,7 @@ public class IronDeposit : MonoBehaviour
     private void SpawnIronOre()
     {
         var rnd = new System.Random();
-        var chance = rnd.Next(5);
+        var chance = rnd.Next(3);
         Vector3 mousePosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, Input.mousePosition.z);
         Vector3 objPosition = Camera.main.ScreenToWorldPoint(mousePosition);
         spawnedObject = Instantiate(chance == 0 ? IronOre : Stone, (transform.position + objPosition) / 2, Quaternion.identity);

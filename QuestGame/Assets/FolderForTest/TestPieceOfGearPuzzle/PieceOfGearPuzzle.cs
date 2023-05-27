@@ -46,6 +46,8 @@ public class PieceOfGearPuzzle : MonoBehaviour
         foreach (var part in SolvedParts)
             Destroy(part.gameObject);
         Message.Instance.LoadMessage("Деталь собрана!", 2);
+
+        transform.parent.GetComponent<Puzzle>().ExitPuzzle();
     }
 
     public void CheckWin()

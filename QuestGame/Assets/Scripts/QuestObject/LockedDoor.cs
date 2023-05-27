@@ -33,7 +33,7 @@ public class LockedDoor : MonoBehaviour, IInteractable
         }
         else
         {
-            Message.Instance.LoadMessage("Нужен ключ!", 1);
+            Message.Instance.LoadMessage("Нужен ключ!\n[Е] - открыть инвентарь.", 3);
         }
     }
 
