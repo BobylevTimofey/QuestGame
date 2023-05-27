@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public static class LevelChecker 
+public static class LevelChecker
 {
-    public static bool IsTakeBag { get; set; }
+    public static bool IsGameStart { get => true; }
+    public static bool IsOpenDoor { get; set; }
     public static bool IsTakeMap { get; set; }
     public static bool IsSolveQuestLever { get; set; }
     public static bool IsSolveQuestInCastleWithSearchItems { get; set; }

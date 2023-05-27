@@ -25,6 +25,8 @@ public class LockedDoor : MonoBehaviour, IInteractable
         if (Inventory.EquipedItem == correctKey)
         {
             canOpen = true;
+            LevelChecker.IsOpenDoor = true;
+            PlayerNPC.Instance.PlayDialogue();
         }
         if (canOpen)
         {

@@ -11,27 +11,27 @@ public class DialoguePlayer : MonoBehaviour
     public Window DialogueCanvas;
     public Text NameOutput;
     public Text TextOutput;
-    private Queue<Phrase> phrasess;
+    private Queue<Phrase> phrases;
     private bool IsPlaying;
     private Animator newAnimator;
 
     public void PlayDialogue(Queue<Phrase> phrases, Animator animator)
     {
         newAnimator = animator;
-        phrasess = phrases;
+        this.phrases = phrases;
         windowsController.OpenWindow(DialogueCanvas);
         NextPhrase();
     }
 
     public void NextPhrase()
     {
-        if (phrasess.Count == 0 || Input.GetKeyDown(KeyCode.Escape))
+        if (phrases.Count == 0 || Input.GetKeyDown(KeyCode.Escape))
         {
             EndDialogue();
             newAnimator.SetBool("IsTalk", false);
             return;
         }
-        var phrase = phrasess.Dequeue();
+        var phrase = phrases.Dequeue();
         if (phrase.Name != "Игрок")
             newAnimator.SetBool("IsTalk", true);
         NameOutput.text = phrase.Name;

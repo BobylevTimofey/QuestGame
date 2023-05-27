@@ -13,6 +13,8 @@ public class Map : MonoBehaviour, IInteractable
 
     public void Interact()
     {
+        LevelChecker.IsTakeMap = true;
+        PlayerNPC.Instance.PlayDialogue();
         minimap.SetActive(true);
         Destroy(gameObject);
     }
