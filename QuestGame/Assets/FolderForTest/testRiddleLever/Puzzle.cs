@@ -16,9 +16,11 @@ public class Puzzle : MonoBehaviour, IInteractable
     [SerializeField]
     private Transform cameraPoint;
     [SerializeField]
-    private Lever lever;
+    private Transform cutsceneCameraPoint;
     private BoxCollider _collider;
     private Transform previousCameraPoint;
+    public bool CanSolve;
+
     private void Awake()
     {
         previousCameraPoint = cinemachine.Follow;
@@ -34,10 +36,10 @@ public class Puzzle : MonoBehaviour, IInteractable
 
     public void ExitPuzzle()
     {
+        CanSolve = false;
         windowsController.CloseWindow(PuzzleCanvas);
         _collider.enabled = true;
         cinemachine.Follow = previousCameraPoint;
-        lever.CanMove = false;
     }
 
     public string ActionText()
@@ -47,9 +49,20 @@ public class Puzzle : MonoBehaviour, IInteractable
 
     public void Interact()
     {
+        CanSolve = true;
         cinemachine.Follow = cameraPoint;
         windowsController.OpenWindow(PuzzleCanvas);
         _collider.enabled = false;
-        lever.CanMove = true;
+    }
+
+    public void PlayCutscene()
+    {
+        windowsController.CloseWindow(PuzzleCanvas);
+        cinemachine.Follow = cutsceneCameraPoint;
+    }
+
+    public void EndCutscene()
+    {
+        ExitPuzzle();
     }
 }

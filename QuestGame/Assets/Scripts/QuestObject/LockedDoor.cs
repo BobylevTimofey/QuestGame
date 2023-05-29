@@ -25,6 +25,8 @@ public class LockedDoor : MonoBehaviour, IInteractable
         if (Inventory.EquipedItem == correctKey)
         {
             canOpen = true;
+            LevelChecker.IsOpenDoor = true;
+            PlayerNPC.Instance.PlayDialogue();
         }
         if (canOpen)
         {
@@ -33,7 +35,7 @@ public class LockedDoor : MonoBehaviour, IInteractable
         }
         else
         {
-            Message.Instance.LoadMessage("Нужен ключ!", 1);
+            Message.Instance.LoadMessage("Нужен ключ!\n[Е] - открыть инвентарь.", 3);
         }
     }
 

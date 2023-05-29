@@ -13,8 +13,6 @@ public class Interactive : MonoBehaviour
     private char KeyToInteract;
     [SerializeField]
     private GameObject interactPanel;
-    [SerializeField]
-    private Animator animator;
     private Camera cam;
     private Ray ray;
     private RaycastHit hit;

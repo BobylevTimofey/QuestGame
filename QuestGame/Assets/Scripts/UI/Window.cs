@@ -58,6 +58,7 @@ public class Window : MonoBehaviour
         starterAssetsInputs.jump = false;
         starterAssetsInputs.sprint = false;
         interactive.CanInteract = false;
+        controller.LockCameraPosition = true;
     }
 
     private void EnableCursor()
