@@ -9,7 +9,12 @@ public class Lever : MonoBehaviour
     private RaycastHit hit;
     [SerializeField]
     private LayerMask wayLayerMask;
+    private Puzzle puzzle;
 
+    private void Awake()
+    {
+        puzzle = transform.parent.GetComponent<Puzzle>();
+    }
     private void Update()
     {
         Ray();
@@ -23,6 +28,7 @@ public class Lever : MonoBehaviour
     }
     private void Interactive()
     {
+        CanMove = puzzle.CanSolve;
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, wayLayerMask) && CanMove && Input.GetMouseButton(0))
         {
             Collider[] colliders = Physics.OverlapSphere(transform.position, 0.05f, wayLayerMask);

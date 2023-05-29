@@ -10,11 +10,13 @@ public class ItemAction : MonoBehaviour, IPointerDownHandler, IPointerExitHandle
     [SerializeField]
     private GameObject chooseActionWindow;
     private InventoryFieldController inventoryController;
+    private WindowsController windowsController;
+    private Window gearPuzzleWindow;
 
     private void Awake()
     {
-        inventoryController = GameObject.Find("InventoryController")
-                                        .GetComponent<InventoryFieldController>();
+        inventoryController = FindObjectOfType<InventoryFieldController>();
+        windowsController = FindObjectOfType<WindowsController>();
         chooseActionWindow.SetActive(false);
     }
 
@@ -39,8 +41,8 @@ public class ItemAction : MonoBehaviour, IPointerDownHandler, IPointerExitHandle
 
     public void Equip()
     {
-        inventoryController.Unequip();
         var equipedItem = inventoryController.QuestObjects[this];
+        inventoryController.Unequip();
         equipedItem.Equip();
     }
 }
