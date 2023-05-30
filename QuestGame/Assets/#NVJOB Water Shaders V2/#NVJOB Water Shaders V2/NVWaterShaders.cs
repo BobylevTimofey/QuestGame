@@ -5,8 +5,8 @@
 // Support this asset - https://nvjob.github.io/donate
 
 
-using UnityEngine;
 using System.Collections;
+using UnityEngine;
 
 [HelpURL("https://nvjob.github.io/unity/nvjob-water-shaders-v2")]
 [AddComponentMenu("#NVJOB/Water Shaders V2")]

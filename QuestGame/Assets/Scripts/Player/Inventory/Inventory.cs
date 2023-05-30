@@ -1,7 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public static class Inventory
 {
@@ -53,7 +51,6 @@ public static class Inventory
         inventory.Remove(questObject);
         ClearInventoryItems();
         LoadInventoryItems();
-
     }
 
     public static void Equip(QuestObject questObject)

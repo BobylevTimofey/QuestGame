@@ -8,6 +8,7 @@ TagManager:
   - StartRiddleFindThree
   - Water
   - StartRiddleFindTwo
+  - DialogueTrigger
   layers:
   - Default
   - TransparentFX
@@ -20,7 +21,7 @@ TagManager:
   - PartOfGearPuzzle
   - MiniMapIcons
   - Mountain
-  - 
+  - DialogueTrigger
   - 
   - 
   - 

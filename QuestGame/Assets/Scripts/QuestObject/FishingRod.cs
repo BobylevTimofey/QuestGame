@@ -1,9 +1,25 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class FishingRod : QuestObject
 {
+    [SerializeField]
+    private LineRenderer lineRenderer;
+    [SerializeField]
+    private Transform pos1;
+    [SerializeField]
+    private Transform pos2;
+
+    private void Start()
+    {
+        lineRenderer.positionCount = 2;
+    }
+
+    private void Update()
+    {
+        lineRenderer.SetPosition(0, pos1.position);
+        lineRenderer.SetPosition(1, pos2.position);
+    }
+
     public override double Weight => 1;
 
     public override string Name => "Удочка";

@@ -1,12 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 public static class LevelChecker
 {
     public static bool IsGameStart { get => true; }
+    public static bool IsTryOpenDoor { get; set; }
     public static bool IsOpenDoor { get; set; }
     public static bool IsTakeMap { get; set; }
+    public static bool IsComeToMountain { get; set; }
     public static bool IsSolveQuestLever { get; set; }
     public static bool IsSolveQuestInCastleWithSearchItems { get; set; }
     public static bool IsHeroTalkAIFirstTime { get; set; }
