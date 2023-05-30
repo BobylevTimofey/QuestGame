@@ -31,7 +31,7 @@ public class DialogueManager : MonoBehaviour
         return phrases;
     }
 
-    private void Start()
+    private void Awake()
     {
         xmlDialogues = new XmlDocument();
         xmlDialogues.Load("Dialogues.xml");
