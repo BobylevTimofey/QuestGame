@@ -1,9 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -47,7 +42,7 @@ public class Interactive : MonoBehaviour
                 var interactObject = hit.transform.gameObject.GetComponent<IInteractable>();
                 interactPanel.SetActive(true);
                 interactPanel.GetComponent<Text>().text = "[" + KeyToInteract + "] - " + interactObject.ActionText();
-                
+
                 Debug.DrawRay(ray.origin, ray.direction * hitDistance, Color.blue);
 
                 if (Input.GetKeyDown((KeyCode)Enum.Parse(typeof(KeyCode), KeyToInteract.ToString())))
@@ -64,6 +59,15 @@ public class Interactive : MonoBehaviour
         {
             interactPanel.SetActive(false);
             Debug.DrawRay(ray.origin, ray.direction * hitDistance, Color.red);
+        }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "DialogueTrigger")
+        {
+            LevelChecker.IsComeToMountain = true;
+            PlayerNPC.Instance.PlayDialogue();
+            Destroy(other.gameObject);
         }
     }
 }

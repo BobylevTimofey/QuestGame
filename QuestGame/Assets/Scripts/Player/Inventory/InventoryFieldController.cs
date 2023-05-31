@@ -1,8 +1,5 @@
-using StarterAssets;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem.XR;
 using UnityEngine.UI;
 
 public class InventoryFieldController : MonoBehaviour

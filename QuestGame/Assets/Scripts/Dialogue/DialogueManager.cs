@@ -1,7 +1,6 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using System.Xml;
+using UnityEngine;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -31,7 +30,7 @@ public class DialogueManager : MonoBehaviour
         return phrases;
     }
 
-    private void Start()
+    private void Awake()
     {
         xmlDialogues = new XmlDocument();
         xmlDialogues.Load("Dialogues.xml");
