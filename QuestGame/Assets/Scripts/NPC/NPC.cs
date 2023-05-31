@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public abstract class NPC : MonoBehaviour, IInteractable
@@ -8,6 +9,8 @@ public abstract class NPC : MonoBehaviour, IInteractable
     public abstract int NPCId { get; }
     public int DialogueId { get => CheckId(); }
 
+    public EndDialogueAction EndAction;
+
 
     public string ActionText()
     {
@@ -15,6 +18,8 @@ public abstract class NPC : MonoBehaviour, IInteractable
     }
 
     public abstract int CheckId();
+
+    public delegate void EndDialogueAction();
 
     public void Interact()
     {
@@ -24,7 +29,7 @@ public abstract class NPC : MonoBehaviour, IInteractable
     public void PlayDialogue()
     {
         var phrases = dialogueManager.GetDialogue(this);
-        dialoguePlayer.PlayDialogue(phrases, animator);
+        dialoguePlayer.PlayDialogue(phrases, animator, EndAction);
     }
 
     private void Awake()

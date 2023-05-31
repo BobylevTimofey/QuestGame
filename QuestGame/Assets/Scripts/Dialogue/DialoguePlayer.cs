@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using static NPC;
 
 public class DialoguePlayer : MonoBehaviour
 {
@@ -14,9 +15,11 @@ public class DialoguePlayer : MonoBehaviour
     private Queue<Phrase> phrases;
     private bool IsPlaying;
     private Animator newAnimator;
+    private EndDialogueAction endAction;
 
-    public void PlayDialogue(Queue<Phrase> phrases, Animator animator)
+    public void PlayDialogue(Queue<Phrase> phrases, Animator animator, EndDialogueAction endAction)
     {
+        this.endAction = endAction;
         newAnimator = animator;
         this.phrases = phrases;
         windowsController.OpenWindow(DialogueCanvas);
@@ -53,6 +56,8 @@ public class DialoguePlayer : MonoBehaviour
     private void EndDialogue()
     {
         windowsController.CloseWindow(DialogueCanvas);
+        if (endAction != null)
+            endAction();
     }
 
     private void Update()

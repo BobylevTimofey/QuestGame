@@ -30,6 +30,9 @@ public class InsertPuzzle : MonoBehaviour
 
     private void performVictoriousActions()
     {
+        if (LevelChecker.IsHeroTakeTaskMinerWithGears)
+            LevelChecker.IsHeroDidTaskMinerWithGears = true;
+        LevelChecker.IsSolveQuestInCastleWithSearchItems = true;
         PlayCutscene();
     }
 

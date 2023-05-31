@@ -61,13 +61,4 @@ public class Interactive : MonoBehaviour
             Debug.DrawRay(ray.origin, ray.direction * hitDistance, Color.red);
         }
     }
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == "DialogueTrigger")
-        {
-            LevelChecker.IsComeToMountain = true;
-            PlayerNPC.Instance.PlayDialogue();
-            Destroy(other.gameObject);
-        }
-    }
 }

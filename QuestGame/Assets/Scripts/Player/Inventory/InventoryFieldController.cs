@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -30,6 +31,8 @@ public class InventoryFieldController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E) && !isBlocked)
             OpenCloseInventory();
+        if (LevelChecker.IsHeroTakeTaskBlacksmith && !LevelChecker.IsHeroHelpBlacksmithWithOven)
+            LevelChecker.IsHeroExtractedOre = Inventory.inventory.Where(item => item is IronOre).Count() == 4;
     }
 
     public void ClearField()
@@ -70,6 +73,12 @@ public class InventoryFieldController : MonoBehaviour
         questObject.transform.localPosition = Vector3.zero;
         questObject.transform.localRotation = Quaternion.Euler(0, 0, 0);
 
+    }
+
+    public void PickUp(QuestObject questObject)
+    {
+        Inventory.Drop(questObject);
+        Destroy(questObject.gameObject);
     }
 
     public void Unequip()

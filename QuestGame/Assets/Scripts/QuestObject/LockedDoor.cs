@@ -22,7 +22,6 @@ public class LockedDoor : MonoBehaviour, IInteractable
     {
         if (Inventory.EquipedItem == correctKey)
         {
-            Inventory.Drop(Inventory.EquipedItem);
             canOpen = true;
             LevelChecker.IsTryOpenDoor = true;
             LevelChecker.IsOpenDoor = true;

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public static class Inventory
@@ -96,5 +97,12 @@ public static class Inventory
     public static void UnblockInventoryOpen()
     {
         inventoryController.isBlocked = false;
+    }
+
+    public static void PickUp(QuestObject questObject)
+    {
+        var needDropItem = inventory.Where(item => item.Name == questObject.name);
+        foreach (var item in needDropItem)
+            inventoryController.PickUp(item);
     }
 }
