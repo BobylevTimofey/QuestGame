@@ -101,8 +101,10 @@ public static class Inventory
 
     public static void PickUp(QuestObject questObject)
     {
-        var needDropItem = inventory.Where(item => item.Name == questObject.name);
-        foreach (var item in needDropItem)
-            inventoryController.PickUp(item);
+        var needDropItem = inventory.Where(item => item.Name == questObject.Name);
+        for(var i = 0; i < needDropItem.Count(); i++)
+        {
+            inventoryController.PickUp(needDropItem.ElementAt(i));
+        }
     }
 }
