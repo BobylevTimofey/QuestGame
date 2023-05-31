@@ -1,12 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 public class PlayerNPC : NPC
 {
     public static NPC Instance;
 
-    public override int NPCId => 0;
+    public override int NPCId => 1;
 
     private void Start()
     {
@@ -17,9 +13,13 @@ public class PlayerNPC : NPC
     public override int CheckId()
     {
         if (LevelChecker.IsGameStart)
-            if (LevelChecker.IsOpenDoor)
-                if (LevelChecker.IsTakeMap)
-                    return 2;
+            if (LevelChecker.IsTryOpenDoor)
+                if (LevelChecker.IsOpenDoor)
+                    if (LevelChecker.IsTakeMap)
+                        if (LevelChecker.IsComeToMountain)
+                            return 4;
+                        else return 3;
+                    else return 2;
                 else return 1;
             else return 0;
         else return -1;

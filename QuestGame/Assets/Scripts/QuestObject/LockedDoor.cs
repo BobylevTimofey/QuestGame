@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class LockedDoor : MonoBehaviour, IInteractable
@@ -10,6 +7,7 @@ public class LockedDoor : MonoBehaviour, IInteractable
     private Collider c;
     private bool canOpen;
     public QuestObject correctKey;
+    private bool canDialgue = true;
     private void Awake()
     {
         canOpen = false;
@@ -24,9 +22,15 @@ public class LockedDoor : MonoBehaviour, IInteractable
     {
         if (Inventory.EquipedItem == correctKey)
         {
+            Inventory.Drop(Inventory.EquipedItem);
             canOpen = true;
+            LevelChecker.IsTryOpenDoor = true;
             LevelChecker.IsOpenDoor = true;
-            PlayerNPC.Instance.PlayDialogue();
+            if (canDialgue)
+            {
+                canDialgue = false;
+                PlayerNPC.Instance.PlayDialogue();
+            }
         }
         if (canOpen)
         {
@@ -35,6 +39,8 @@ public class LockedDoor : MonoBehaviour, IInteractable
         }
         else
         {
+            LevelChecker.IsTryOpenDoor = true;
+            PlayerNPC.Instance.PlayDialogue();
             Message.Instance.LoadMessage("Нужен ключ!\n[Е] - открыть инвентарь.", 3);
         }
     }
